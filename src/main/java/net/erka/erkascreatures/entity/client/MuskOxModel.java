@@ -13,17 +13,17 @@ import software.bernie.geckolib.model.data.EntityModelData;
 public class MuskOxModel extends GeoModel<MuskOxEntity> {
     @Override
     public Identifier getModelResource(MuskOxEntity animatable) {
-        return new Identifier(ErkasCreatures.MOD_ID, "geo/MuskOx.geo.json");
+        return new Identifier(ErkasCreatures.MOD_ID, "geo/muskox.geo.json");
     }
 
     @Override
     public Identifier getTextureResource(MuskOxEntity animatable) {
-        return new Identifier(ErkasCreatures.MOD_ID, "textures/entity/MuskOx.png");
+        return new Identifier(ErkasCreatures.MOD_ID, "textures/entity/muskox.png");
     }
 
     @Override
     public Identifier getAnimationResource(MuskOxEntity animatable) {
-        return new Identifier(ErkasCreatures.MOD_ID, "animations/MuskOx.animation.json");
+        return new Identifier(ErkasCreatures.MOD_ID, "animations/muskox.animation.json");
     }
 
     @Override

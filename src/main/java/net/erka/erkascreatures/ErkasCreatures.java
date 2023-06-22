@@ -1,6 +1,4 @@
 package net.erka.erkascreatures;
-
-import net.erka.erkascreatures.data.ModModelProvider;
 import net.erka.erkascreatures.entity.ModEntities;
 import net.erka.erkascreatures.entity.custom.MuskOxEntity;
 import net.erka.erkascreatures.item.ModItemGroup;

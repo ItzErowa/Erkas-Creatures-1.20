@@ -17,7 +17,7 @@ public class MuskOxRenderer extends GeoEntityRenderer<MuskOxEntity> {
 
     @Override
     public Identifier getTexture(MuskOxEntity animatable) {
-        return new Identifier(ErkasCreatures.MOD_ID, "textures/entity/MuskOx.png");
+        return new Identifier(ErkasCreatures.MOD_ID, "textures/entity/muskox.png");
     }
 
     @Override
