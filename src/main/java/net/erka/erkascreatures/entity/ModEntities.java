@@ -3,7 +3,6 @@ package net.erka.erkascreatures.entity;
 import net.erka.erkascreatures.ErkasCreatures;
 import net.erka.erkascreatures.entity.custom.MuskOxEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.fabricmc.fabric.impl.object.builder.FabricEntityType;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;

@@ -1,6 +1,4 @@
 package net.erka.erkascreatures.entity.custom;
-
-import com.sun.jna.platform.win32.WinDef;
 import net.erka.erkascreatures.entity.ModEntities;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
@@ -17,12 +15,12 @@ import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
 public class MuskOxEntity extends AnimalEntity implements GeoEntity {
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
+    private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
 
     public MuskOxEntity(EntityType<? extends AnimalEntity> entityType, World world) {
@@ -57,11 +55,9 @@ public class MuskOxEntity extends AnimalEntity implements GeoEntity {
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return ModEntities.MUSK_OX.create(world);
     }
-
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-        controllerRegistrar.add(new AnimationController<>(this, "controler", 0, this::predicate));
-
+        controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
     }
 
     private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
@@ -69,7 +65,7 @@ public class MuskOxEntity extends AnimalEntity implements GeoEntity {
             tAnimationState.getController().setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
         }
 
-        tAnimationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.PLAY_ONCE));
+        tAnimationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
         return PlayState.CONTINUE;
     }
 
@@ -77,4 +73,5 @@ public class MuskOxEntity extends AnimalEntity implements GeoEntity {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
+
 }
