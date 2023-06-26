@@ -11,6 +11,8 @@ import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
 public class MuskOxModel extends GeoModel<MuskOxEntity> {
+
+
     @Override
     public Identifier getModelResource(MuskOxEntity animatable) {
         return new Identifier(ErkasCreatures.MOD_ID, "geo/muskox.geo.json");

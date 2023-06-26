@@ -16,7 +16,7 @@ public class ModItems {
            new Item(new FabricItemSettings()));
 
     public static final Item MUSK_OX_SPAWN_EGG = registerItem("musk_ox_spawn_egg",
-            new SpawnEggItem(ModEntities.MUSK_OX, 0xD57E36, 0x1D0D00,
+            new SpawnEggItem(ModEntities.MUSK_OX, 0x594328, 0x4a4727,
                     new FabricItemSettings()));
 
 

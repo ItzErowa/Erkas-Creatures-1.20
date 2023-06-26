@@ -1,13 +1,12 @@
 package net.erka.erkascreatures.entity.custom;
 import net.erka.erkascreatures.entity.ModEntities;
+import net.minecraft.client.texture.Sprite;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.brain.sensor.HurtBySensor;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.ChickenEntity;
-import net.minecraft.entity.passive.MerchantEntity;
-import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
@@ -18,6 +17,8 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animation.*;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
+
+import java.util.List;
 
 public class MuskOxEntity extends AnimalEntity implements GeoEntity {
     private AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
@@ -40,38 +41,36 @@ public class MuskOxEntity extends AnimalEntity implements GeoEntity {
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(2, new MeleeAttackGoal(this, 1.2D, false));
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
-
         this.goalSelector.add(4, new LookAroundGoal(this));
 
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, MerchantEntity.class, true));
-        this.targetSelector.add(3, new ActiveTargetGoal<>(this, ChickenEntity.class, true));
+        this.targetSelector.add(1, new RevengeGoal(this));
     }
-
-
 
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
         return ModEntities.MUSK_OX.create(world);
     }
+
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
         controllerRegistrar.add(new AnimationController<>(this, "controller", 0, this::predicate));
     }
 
+
     private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
         if(tAnimationState.isMoving()) {
             tAnimationState.getController().setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
+        } else {
+
+
+            tAnimationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
+            return PlayState.CONTINUE;
         }
-
-        tAnimationState.getController().setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
-        return PlayState.CONTINUE;
     }
-
     @Override
     public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
+        return this.cache;
     }
-
 }
