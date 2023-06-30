@@ -8,9 +8,10 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import software.bernie.geckolib.renderer.GeoEntityRenderer;
+
 
 public class ErkasCreatures implements ModInitializer {
-
 	public static final String MOD_ID = "erkas-creatures";
     public static final Logger LOGGER = LoggerFactory.getLogger("erkas-creatures");
 
@@ -24,5 +25,6 @@ public class ErkasCreatures implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.MUSK_OX, MuskOxEntity.setAttributes());
 
 		ModWorldGeneration.generateModWorldGen();
+
 	}
 }

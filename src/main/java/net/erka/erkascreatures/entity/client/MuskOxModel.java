@@ -2,6 +2,7 @@ package net.erka.erkascreatures.entity.client;
 
 import net.erka.erkascreatures.ErkasCreatures;
 import net.erka.erkascreatures.entity.custom.MuskOxEntity;
+import net.minecraft.client.model.ModelPart;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import software.bernie.geckolib.constant.DataTickets;
@@ -11,8 +12,7 @@ import software.bernie.geckolib.model.GeoModel;
 import software.bernie.geckolib.model.data.EntityModelData;
 
 public class MuskOxModel extends GeoModel<MuskOxEntity> {
-
-
+    
     @Override
     public Identifier getModelResource(MuskOxEntity animatable) {
         return new Identifier(ErkasCreatures.MOD_ID, "geo/muskox.geo.json");

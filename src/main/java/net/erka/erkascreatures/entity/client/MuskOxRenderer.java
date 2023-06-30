@@ -9,9 +9,9 @@ import net.minecraft.util.Identifier;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class MuskOxRenderer extends GeoEntityRenderer<MuskOxEntity> {
-
     public MuskOxRenderer(EntityRendererFactory.Context renderManager) {
         super(renderManager, new MuskOxModel());
+        this.shadowRadius = 0.5f;
     }
 
     @Override
@@ -22,9 +22,6 @@ public class MuskOxRenderer extends GeoEntityRenderer<MuskOxEntity> {
     @Override
     public void render(MuskOxEntity entity, float entityYaw, float partialTick, MatrixStack poseStack,
                        VertexConsumerProvider bufferSource, int packedLight) {
-        if(entity.isBaby()) {
-            poseStack.scale(0.4f, 0.4f, 0.4f);
-        }
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 }
