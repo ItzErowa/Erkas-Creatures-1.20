@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 150,
+  "experience": 0.35,
+  "group": "food",
+  "ingredient": {
+    "item": "erkas-creatures:musk_ox_tongue"
+  },
+  "result": "erkas-creatures:cooked_musk_ox_tongue"
+}
