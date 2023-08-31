@@ -12,7 +12,7 @@ import net.minecraft.world.biome.BiomeKeys;
 public class ModEntityGeneration {
     public static void addSpawns() {
         BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.SNOWY_PLAINS), SpawnGroup.CREATURE,
-                ModEntities.MUSK_OX, 20, 2, 6);
+                ModEntities.MUSK_OX, 10, 2, 4);
 
         SpawnRestriction.register(ModEntities.MUSK_OX, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, AnimalEntity::isValidNaturalSpawn);

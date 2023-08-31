@@ -1,6 +1,8 @@
 {
   "item.erkas-creatures.catshark_bucket": "Catshark Bucket",
-  "item.erkas-creatures.musk_ox_spawn_egg": "Musk Ox Spawn Egg"
+  "item.erkas-creatures.musk_ox_spawn_egg": "Musk Ox Spawn Egg",
+  "item.erkas-creatures.musk_ox_tongue": "Musk Ox Tongue",
+  "item.erkas-creatures.cooked_musk_ox_tongue": "Cooked Musk Ox Tongue",
 
-
+  "entity.erkas-creatures.musk_ox": "Musk Ox"
 }

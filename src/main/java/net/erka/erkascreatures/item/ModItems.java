@@ -2,6 +2,7 @@ package net.erka.erkascreatures.item;
 
 import net.erka.erkascreatures.ErkasCreatures;
 import net.erka.erkascreatures.entity.ModEntities;
+import net.erka.erkascreatures.entity.custom.ModFoodComponents;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
@@ -14,6 +15,12 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     public static final Item CATSHARK_BUCKET = registerItem("catshark_bucket",
            new Item(new FabricItemSettings()));
+
+    public static final Item MUSK_OX_TONGUE = registerItem("musk_ox_tongue",
+            new Item(new FabricItemSettings().food(ModFoodComponents.MUSK_OX_TONGUE)));
+
+    public static final Item COOKED_MUSK_OX_TONGUE = registerItem("cooked_musk_ox_tongue",
+            new Item(new FabricItemSettings().food(ModFoodComponents.COOKED_MUSK_OX_TONGUE)));
 
     public static final Item MUSK_OX_SPAWN_EGG = registerItem("musk_ox_spawn_egg",
             new SpawnEggItem(ModEntities.MUSK_OX, 0x594328, 0x4a4727,
